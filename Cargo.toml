@@ -7,8 +7,8 @@ license = "Apache-2.0"
 description = "Tiny GUI app to compare text easily"
 repository = "https://github.com/nabbisen/picodiff"
 readme = "README.md"
-categories = ["development-tools", "parsing", "parser-implementations"]
-keywords = ["text", "compare", "gui", "productivity"]
+categories = ["text-processing", "gui", "value-formatting", "visualization"]
+keywords = ["text", "compare", "diff", "productivity"]
 rust-version = "1.74.0"
 
 [dependencies]
