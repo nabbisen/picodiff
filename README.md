@@ -3,7 +3,6 @@
 Tiny GUI app to compare text easily. Lightweight as feather, handy in palm and has cross-platform support. Written in [Rust](https://www.rust-lang.org/) along with [fltk-rs](https://github.com/fltk-rs/fltk-rs) (Rust's binding for [FLTK](https://www.fltk.org/)).
 
 [![crates.io](https://img.shields.io/crates/v/picodiff?label=latest)](https://crates.io/crates/picodiff)
-[![Documentation](https://docs.rs/picodiff/badge.svg?version=latest)](https://docs.rs/picodiff/latest)
 [![Dependency Status](https://deps.rs/crate/picodiff/latest/status.svg)](https://deps.rs/crate/picodiff/latest)
 [![Releases Workflow](https://github.com/nabbisen/picodiff/actions/workflows/release.yml/badge.svg)](https://github.com/nabbisen/picodiff/actions/workflows/)
 [![License](https://img.shields.io/github/license/nabbisen/picodiff)](https://github.com/nabbisen/picodiff/blob/main/LICENSE)
