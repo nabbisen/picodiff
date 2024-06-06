@@ -8,7 +8,7 @@ description = "Tiny GUI app to compare text easily"
 repository = "https://github.com/nabbisen/picodiff"
 readme = "README.md"
 categories = ["development-tools", "parsing", "parser-implementations"]
-keywords = ["html", "markdown", "parser", "conversion"]
+keywords = ["text", "compare", "gui", "productivity"]
 rust-version = "1.74.0"
 
 [dependencies]
