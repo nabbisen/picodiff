@@ -17,25 +17,25 @@ jobs:
     strategy:
       matrix:
         target:
-          - aarch64-unknown-linux-gnu
           - x86_64-unknown-linux-gnu
-          # - aarch64-unknown-linux-musl
+          - aarch64-unknown-linux-gnu
           # - x86_64-unknown-linux-musl
+          # - aarch64-unknown-linux-musl
           - aarch64-apple-darwin
           - x86_64-pc-windows-msvc
         include:
-          - target: aarch64-unknown-linux-gnu
-            os: ubuntu-24.04
-            tag: linux-aarch64-gnu
           - target: x86_64-unknown-linux-gnu
-            os: ubuntu-24.04
+            os: ubuntu-latest
             tag: linux-x86_64-gnu
-          # - target: aarch64-unknown-linux-musl
-          #   os: ubuntu-24.04
-          #   tag: linux-aarch64-musl
+          - target: aarch64-unknown-linux-gnu
+            os: ubuntu-latest
+            tag: linux-aarch64-gnu
           # - target: x86_64-unknown-linux-musl
           #   os: ubuntu-24.04
           #   tag: linux-x86_64-musl
+          # - target: aarch64-unknown-linux-musl
+          #   os: ubuntu-24.04
+          #   tag: linux-aarch64-musl
           - target: aarch64-apple-darwin
             os: macos-latest
             tag: osx-x86_64
@@ -44,9 +44,19 @@ jobs:
             tag: windows-x86_64-msvc
     steps:
     - uses: actions/checkout@v4
-    - name: Install fltk-rs requirements on Ubuntu
-      if: runner.os == 'Linux'
-      run: sudo apt-get update && sudo apt-get install -y libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev libpango1.0-dev libgl1-mesa-dev libglu1-mesa-dev
+    - name: Install fltk-rs requirements on x64 Linux
+      if: matrix.target == 'x86_64-unknown-linux-gnu'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev libpango1.0-dev libgl1-mesa-dev libglu1-mesa-dev
+    - name: Install fltk-rs requirements on aarch64 Linux
+      if: matrix.target == 'aarch64-unknown-linux-gnu'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y qemu-user-static
+        sudo dpkg --add-architecture arm64
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends libx11-dev:arm64 libxext-dev:arm64 libxft-dev:arm64 libxinerama-dev:arm64 libxcursor-dev:arm64 libxrender-dev:arm64 libxfixes-dev:arm64 libgl1-mesa-dev:arm64 libglu1-mesa-dev:arm64 libasound2-dev:arm64 libpango1.0-dev:arm64
     - name: Install Rust
       run: bash .github/workflows/scripts/install-rust.sh stable ${{ matrix.target }}
     - name: Build asset
