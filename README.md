@@ -13,6 +13,12 @@ Just run the binary in [Releases](../../releases) for your platform, either of W
 
 ![comparison result](.docs-assets/comparison-result.png)
 
+Alternatively, if you have Rust installed, you can install the app via [Cargo](https://doc.rust-lang.org/stable/cargo/) package manager in `$HOME/.cargo/bin`:
+
+```sh
+cargo install picodiff
+```
+
 ## Acknowledgements
 
 Depends on `Rust` programming language, `FLTK` cross-platform GUI toolkit, `fltk-rs` and [`similar`](https://github.com/mitsuhiko/similar) diffing library.
