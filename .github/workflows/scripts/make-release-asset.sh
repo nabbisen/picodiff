@@ -18,6 +18,8 @@ then
 fi
 export CARGO_PROFILE_RELEASE_LTO=true
 BIN_NAME=picodiff
+# fltk-rs requirements for ubuntu
+apt-get install libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev libpango1.0-dev libgl1-mesa-dev libglu1-mesa-dev
 cargo build --locked --bin $BIN_NAME --release --target $target
 
 cd target/$target/release
