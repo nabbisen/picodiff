@@ -1,0 +1,16 @@
+[package]
+name = "picodiff"
+version = "0.9.0"
+edition = "2021"
+authors = ["nabbisen <nabbisen@scqr.net>"]
+license = "Apache-2.0"
+description = "Tiny GUI app to compare text easily"
+repository = "https://github.com/nabbisen/picodiff"
+readme = "README.md"
+categories = ["development-tools", "parsing", "parser-implementations"]
+keywords = ["html", "markdown", "parser", "conversion"]
+rust-version = "1.74.0"
+
+[dependencies]
+fltk = { version = "^1.4", features = ["fltk-bundled"] }
+similar = "^2.5"
