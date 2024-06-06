@@ -10,7 +10,7 @@ Tiny GUI app to compare text easily. Lightweight as feather, handy in palm and h
 
 ## Usage
 
-Just run the binary for your platform, either of Windows, MacOS, Linux. The window will start so put text at input fields on the form. The comparison result will appear.
+Just run the binary in [Releases](../../releases) for your platform, either of Windows, MacOS, Linux. The app will start so put text at input fields on the form. The comparison result will appear.
 
 ![comparison result](.docs-assets/comparison-result.png)
 
