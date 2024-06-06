@@ -5,6 +5,7 @@ Tiny GUI app to compare text easily. Lightweight as feather, handy in palm and h
 [![crates.io](https://img.shields.io/crates/v/picodiff?label=latest)](https://crates.io/crates/picodiff)
 [![Documentation](https://docs.rs/picodiff/badge.svg?version=latest)](https://docs.rs/picodiff/latest)
 [![Dependency Status](https://deps.rs/crate/picodiff/latest/status.svg)](https://deps.rs/crate/picodiff/latest)
+[![Releases Workflow](https://github.com/nabbisen/picodiff/actions/workflows/release.yml/badge.svg)](https://github.com/nabbisen/picodiff/actions/workflows/)
 [![License](https://img.shields.io/github/license/nabbisen/picodiff)](https://github.com/nabbisen/picodiff/blob/main/LICENSE)
 
 ## Usage
