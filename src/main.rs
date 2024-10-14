@@ -21,21 +21,21 @@ const SCROLL: i32 = PAD / 3;
 const HEIGHT: i32 = PAD * 3;
 const STYLE_TABLE: [StyleTableEntryExt; 3] = [
     StyleTableEntryExt {
-        color: Color::from_hex(0x000000),
+        color: Color::Green,
         font: Font::Courier,
         size: 16,
         attr: TextAttr::None,
         bgcolor: Color::TransparentBg,
     },
     StyleTableEntryExt {
-        color: Color::from_hex(0x00ff00),
+        color: Color::Red,
         font: Font::Courier,
         size: 16,
         attr: TextAttr::None,
         bgcolor: Color::TransparentBg,
     },
     StyleTableEntryExt {
-        color: Color::from_hex(0xff0000),
+        color: Color::Blue,
         font: Font::Courier,
         size: 16,
         attr: TextAttr::None,
@@ -62,7 +62,6 @@ fn main() -> Result<(), FltkError> {
         Window::default().with_size(640, 360).center_screen();
         ..set_label("Pico Diff");
         ..make_resizable(true);
-        ..set_color(Color::White);
         ..set_callback(move |_| {
             if app::event() == Event::Close {
                 app::quit();
@@ -74,7 +73,6 @@ fn main() -> Result<(), FltkError> {
             ..set_margin(PAD);
             ..fixed(&cascade!(
                 Input::default();
-                ..set_color(Color::from_hex(0xffeecc));
                 ..set_trigger(CallbackTrigger::Changed);
                 ..set_callback(glib::clone!(@strong state => move |input| {
                     state.borrow_mut().set_source(input.value());
@@ -83,7 +81,6 @@ fn main() -> Result<(), FltkError> {
             ), HEIGHT);
             ..fixed(&cascade!(
                 Input::default();
-                ..set_color(Color::from_hex(0xccffee));
                 ..set_trigger(CallbackTrigger::Changed);
                 ..set_callback(glib::clone!(@strong state => move |input| {
                     state.borrow_mut().set_target(input.value());
@@ -139,5 +136,33 @@ fn main() -> Result<(), FltkError> {
         ..end();
     )
     .show();
+    let color = [
+        0xeee8d5, //base2
+        0xfdf6e3, //base3
+        0x586e75, //base01
+        0xcb4b16, //orange
+        0xb58900, //yellow
+    ];
+    let (r, g, b) = Color::from_hex(color[0]).to_rgb();
+    app::set_background_color(r, g, b);
+    let (r, g, b) = Color::from_hex(color[1]).to_rgb();
+    app::set_background2_color(r, g, b);
+    let (r, g, b) = Color::from_hex(color[2]).to_rgb();
+    app::set_foreground_color(r, g, b);
+    let (r, g, b) = Color::from_hex(color[3]).to_rgb();
+    app::set_selection_color(r, g, b);
+    let (r, g, b) = Color::from_hex(color[4]).to_rgb();
+    app::set_inactive_color(r, g, b);
+    for (color, hex) in [
+        (Color::Yellow, 0xb58900),
+        (Color::Red, 0xdc322f),
+        (Color::Magenta, 0xd33682),
+        (Color::Blue, 0x268bd2),
+        (Color::Cyan, 0x2aa198),
+        (Color::Green, 0x859900),
+    ] {
+        let (r, g, b) = Color::from_hex(hex).to_rgb();
+        app::set_color(color, r, g, b);
+    }
     app.run()
 }

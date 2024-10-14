@@ -32,6 +32,10 @@ impl Model {
         self.diff();
     }
     fn diff(&mut self) {
+        self.source_text.clear();
+        self.source_style.clear();
+        self.target_text.clear();
+        self.target_style.clear();
         for (tag, text) in
             utils::diff_chars(Algorithm::Myers, &self.input_source, &self.input_target)
         {
