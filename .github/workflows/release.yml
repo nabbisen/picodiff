@@ -10,6 +10,9 @@ defaults:
 permissions:
   contents: write
 
+env:
+  PRODUCT_BASENAME: picodiff
+
 jobs:
   release:
     name: Deploy Release
@@ -58,7 +61,7 @@ jobs:
     - name: Install Rust
       run: bash .github/workflows/scripts/install-rust.sh stable ${{ matrix.target }}
     - name: Build asset
-      run: bash .github/workflows/scripts/make-release-asset.sh ${{ matrix.os }} ${{ matrix.target }} ${{ matrix.tag }}
+      run: bash .github/workflows/scripts/make-release-asset.sh ${{ matrix.os }} ${{ matrix.target }} ${{ matrix.tag }} $PRODUCT_BASENAME
     - name: Update release with new asset
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

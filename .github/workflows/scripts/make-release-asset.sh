@@ -17,34 +17,34 @@ then
   export "CARGO_TARGET_$(echo $target | tr a-z- A-Z_)_LINKER"=rust-lld
 fi
 export CARGO_PROFILE_RELEASE_LTO=true
-BIN_NAME=picodiff
-cargo build --locked --bin $BIN_NAME --release --target $target
+bin_name=$4
+cargo build --locked --bin $bin_name --release --target $target
 
 cd target/$target/release
 
-mkdir $BIN_NAME-main
+mkdir $bin_name-main
 os_tag=$3
 case $1 in
   ubuntu*)
-    cp $BIN_NAME $BIN_NAME-main/
-    asset="$BIN_NAME-$os_tag-$TAG.tar.gz"
-    tar czf ../../$asset $BIN_NAME-main
+    cp $bin_name $bin_name-main/
+    asset="$bin_name-$os_tag-$TAG.tar.gz"
+    tar czf ../../$asset $bin_name-main
     ;;
   macos*)
-    cp $BIN_NAME $BIN_NAME-main/
-    asset="$BIN_NAME-$os_tag-$TAG.tar.gz"
+    cp $bin_name $bin_name-main/
+    asset="$bin_name-$os_tag-$TAG.tar.gz"
     # There is a bug with BSD tar on macOS where the first 8MB of the file are
     # sometimes all NUL bytes. See https://github.com/actions/cache/issues/403
     # and https://github.com/rust-lang/cargo/issues/8603 for some more
     # information. An alternative solution here is to install GNU tar, but
     # flushing the disk cache seems to work, too.
     sudo /usr/sbin/purge
-    tar czf ../../$asset $BIN_NAME-main
+    tar czf ../../$asset $bin_name-main
     ;;
   windows*)
-    cp $BIN_NAME.exe $BIN_NAME-main/
-    asset="$BIN_NAME-$os_tag-$TAG.zip"
-    7z a -w ../../$asset $BIN_NAME-main
+    cp $bin_name.exe $bin_name-main/
+    asset="$bin_name-$os_tag-$TAG.zip"
+    7z a -w ../../$asset $bin_name-main
     ;;
   *)
     echo "OS should be first parameter, was: $1"
