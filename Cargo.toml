@@ -12,5 +12,5 @@ keywords = ["text", "compare", "diff", "productivity"]
 rust-version = "1.74.0"
 
 [dependencies]
-fltk = { version = "^1.4", features = ["fltk-bundled"] }
+fltk = { version = "^1.5", features = ["fltk-bundled", "use-wayland"] }
 similar = "^2.5"

@@ -49,26 +49,35 @@ checksum = "d0a5c400df2834b80a4c3327b3aad3a4c4cd4de0629063962b03235697506a28"
 
 [[package]]
 name = "fltk"
-version = "1.5.4"
+version = "1.5.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "74e9cd956bb97d6d35fcabd549973dde55b2a12bee7d9d61171910f5d762af68"
+checksum = "6ef591509a695d1f6ae5a1ff2b50bf98fb96a82c2d1f2a97b9103b762583c915"
 dependencies = [
  "bitflags",
  "crossbeam-channel",
  "fltk-sys",
+ "minipaste",
  "once_cell",
- "paste",
  "ttf-parser",
 ]
 
 [[package]]
 name = "fltk-sys"
-version = "1.5.4"
+version = "1.5.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "db5c603b4416ff5665df2ec5dc0c102781a5fb56f2720de0abd11a0ffa8abd23"
+checksum = "0d09bcc449403e8ef87799dc5c5a1e31469ad5affd1bcaaca3a15810aae4ff6f"
 dependencies = [
  "cmake",
  "cmk",
+]
+
+[[package]]
+name = "minipaste"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1bbcafc6544efab7decec8e8e63d6e7cbaac0a699a4adead308a80f9c302d6ae"
+dependencies = [
+ "proc-macro2",
 ]
 
 [[package]]
@@ -78,17 +87,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d75b0bedcc4fe52caa0e03d9f1151a323e4aa5e2d78ba3580400cd3c9e2bc4bc"
 
 [[package]]
-name = "paste"
-version = "1.0.15"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a"
-
-[[package]]
 name = "picodiff"
 version = "0.9.5"
 dependencies = [
  "fltk",
  "similar",
+]
+
+[[package]]
+name = "proc-macro2"
+version = "1.0.106"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8fd00f0bb2e90d81d1044c2b32617f68fcb9fa3bb7640c23e9c748e53fb30934"
+dependencies = [
+ "unicode-ident",
 ]
 
 [[package]]
@@ -108,3 +120,9 @@ name = "ttf-parser"
 version = "0.25.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d2df906b07856748fa3f6e0ad0cbaa047052d4a7dd609e231c4f72cee8c36f31"
+
+[[package]]
+name = "unicode-ident"
+version = "1.0.24"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75"
