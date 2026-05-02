@@ -1,6 +1,6 @@
 [package]
 name = "picodiff"
-version = "0.9.5"
+version = "0.10.0"
 edition = "2021"
 authors = ["nabbisen"]
 license = "Apache-2.0"
@@ -13,4 +13,4 @@ rust-version = "1.74.0"
 
 [dependencies]
 fltk = { version = "^1.5", features = ["fltk-bundled", "use-wayland"] }
-similar = "^2.5"
+similar = "3"
