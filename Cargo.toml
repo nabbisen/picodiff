@@ -1,8 +1,8 @@
 [package]
 name = "picodiff"
-version = "0.9.4"
+version = "0.9.5"
 edition = "2021"
-authors = ["nabbisen <nabbisen@scqr.net>"]
+authors = ["nabbisen"]
 license = "Apache-2.0"
 description = "Tiny GUI app to compare text easily"
 repository = "https://github.com/nabbisen/picodiff"
